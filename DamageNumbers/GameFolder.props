@@ -1,0 +1,6 @@
+﻿<Project>
+	<PropertyGroup>
+		<GameFolder>D:\Modding\GTFO_modding\lib</GameFolder>
+		<CopyPath>C:\Program Files (x86)\Steam\steamapps\common\GTFO\BepInEx\plugins</CopyPath>
+	</PropertyGroup>
+</Project>
