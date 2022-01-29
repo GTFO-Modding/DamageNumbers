@@ -3,5 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="damagenumber" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="damagenumber" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="GTFO-API">
+      <HintPath>..\..\..\lib\Plugins\GTFO-API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 
 </Project>

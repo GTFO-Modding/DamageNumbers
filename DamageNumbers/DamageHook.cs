@@ -1,11 +1,11 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using Agents;
-using FloatingNumberAPI.API;
+using FloatingNumberAPI;
 using Enemies;
 using Player;
 
-namespace FloatingNumberAPI
+namespace DamageNumbers
 {
     [HarmonyPatch]
     internal static class DamageHook

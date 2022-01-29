@@ -6,10 +6,10 @@ using UnityEngine;
 using System.Reflection;
 using GTFO.API;
 using Player;
-using FloatingNumberAPI.API;
+using FloatingNumberAPI;
 using System;
 
-namespace FloatingNumberAPI
+namespace DamageNumbers
 {
     [BepInPlugin(GUID, NAME, VERSION)]
     public class Main : BasePlugin
@@ -19,17 +19,17 @@ namespace FloatingNumberAPI
             AUTHOR = "dak",
             VERSION = "2.1.0",
             GUID = "com." + AUTHOR + "." + NAME;
-        public static Main instance;
-        internal GameObject DamageDisplay;
+        //public static Main instance;
+        //internal GameObject DamageDisplay;
 
         public override void Load()
         {
-            instance = this;
+            //instance = this;
             ClassInjector.RegisterTypeInIl2Cpp<FloatingTextBase>();
             var harmony = new Harmony(GUID);
             harmony.PatchAll();
-            InitAssetBundle("damagenumber");
-            DamageDisplay = AssetAPI.GetLoadedAsset("ASSETS/PREFABS/DAMAGENUMBERS/DAMAGENUMBER.PREFAB")?.TryCast<GameObject>();
+            //InitAssetBundle("damagenumber");
+            //DamageDisplay = AssetAPI.GetLoadedAsset("ASSETS/PREFABS/DAMAGENUMBERS/DAMAGENUMBER.PREFAB")?.TryCast<GameObject>();
 
             NetworkAPI.RegisterEvent<NetworkDamageNumberInfo>(NetworkDamageNumberInfo.NetworkIdentity, RecieveDamageNumberInfo);
 
@@ -56,17 +56,17 @@ namespace FloatingNumberAPI
             }
         }
 
-        private static void InitAssetBundle(string assetBundleName)
-        {
-            var assembly = Assembly.GetExecutingAssembly();
-            byte[] result;
-            using (var stream = assembly.GetManifestResourceStream($"DamageNumbers.{assetBundleName}"))
-            {
-                result = new byte[stream.Length - stream.Position];
-                stream.Read(result);
-            }
-            GTFO.API.AssetAPI.LoadAndRegisterAssetBundle(result);
-        }
+        //private static void InitAssetBundle(string assetBundleName)
+        //{
+        //    var assembly = Assembly.GetExecutingAssembly();
+        //    byte[] result;
+        //    using (var stream = assembly.GetManifestResourceStream($"DamageNumbers.{assetBundleName}"))
+        //    {
+        //        result = new byte[stream.Length - stream.Position];
+        //        stream.Read(result);
+        //    }
+        //    GTFO.API.AssetAPI.LoadAndRegisterAssetBundle(result);
+        //}
     }
 
 #if DEBUG

@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace FloatingNumberAPI
+﻿namespace DamageNumbers
 {
     public struct NetworkDamageNumberInfo
     {

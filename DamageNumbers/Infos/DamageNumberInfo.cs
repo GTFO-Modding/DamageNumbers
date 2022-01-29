@@ -1,11 +1,9 @@
-﻿using Agents;
-using FloatingNumberAPI.API;
-using Player;
+﻿using FloatingNumberAPI;
 using TMPro;
 using UnityEngine;
 using SNetwork;
 
-namespace FloatingNumberAPI
+namespace DamageNumbers
 {
     public struct DamageNumberInfo : IFloatingTextInfo
     {

@@ -1,7 +1,6 @@
 ﻿using GTFO.API;
 using System;
 using UnityEngine;
-using FloatingNumberAPI.API;
 
 namespace FloatingNumberAPI
 {
@@ -9,7 +8,7 @@ namespace FloatingNumberAPI
     {
         public static GameObject CreateFloatingText<TextHandler>(IFloatingTextInfo info) where TextHandler : FloatingTextBase
         {
-            GameObject obj = UnityEngine.Object.Instantiate(Main.instance.DamageDisplay);
+            GameObject obj = UnityEngine.Object.Instantiate(Main.DamageText);
             FloatingTextBase handler = obj.AddComponent<TextHandler>();
             handler.Setup(info);
             return obj;

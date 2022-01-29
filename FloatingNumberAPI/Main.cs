@@ -16,20 +16,20 @@ namespace FloatingNumberAPI
             AUTHOR = "dak",
             GUID = "com." + AUTHOR + "." + MODNAME,
             VERSION = "1.0.0";
-        internal GameObject DamageDisplay;
+        internal static GameObject DamageText;
 
         public override void Load()
         {
             ClassInjector.RegisterTypeInIl2Cpp<FloatingTextBase>();
             InitAssetBundle("damagenumber");
-            DamageDisplay = AssetAPI.GetLoadedAsset("ASSETS/PREFABS/DAMAGENUMBERS/DAMAGENUMBER.PREFAB")?.TryCast<GameObject>();
+            DamageText = AssetAPI.GetLoadedAsset("ASSETS/PREFABS/DAMAGENUMBERS/DAMAGENUMBER.PREFAB")?.TryCast<GameObject>();
         }
 
         private static void InitAssetBundle(string assetBundleName)
         {
             var assembly = Assembly.GetExecutingAssembly();
             byte[] result;
-            using (var stream = assembly.GetManifestResourceStream($"DamageNumbers.{assetBundleName}"))
+            using (var stream = assembly.GetManifestResourceStream($"FloatingNumberAPI.{assetBundleName}"))
             {
                 result = new byte[stream.Length - stream.Position];
                 stream.Read(result);

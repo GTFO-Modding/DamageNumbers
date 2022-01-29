@@ -6,12 +6,11 @@
   </PropertyGroup>
 	
   <ItemGroup>
-    <None Remove="damagenumber" />
     <None Remove="damagenumbersassets" />
   </ItemGroup>
 	
   <ItemGroup>
-    <EmbeddedResource Include="damagenumber" />
+    <ProjectReference Include="..\FloatingNumberAPI\FloatingNumberAPI.csproj" />
   </ItemGroup>
 
 </Project>
