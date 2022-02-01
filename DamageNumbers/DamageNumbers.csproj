@@ -10,7 +10,7 @@
   </ItemGroup>
 	
   <ItemGroup>
-    <ProjectReference Include="..\FloatingNumberAPI\FloatingNumberAPI.csproj" />
+    <ProjectReference Include="..\FloatingNumberAPI\FloatingTextAPI.csproj" />
   </ItemGroup>
 
 </Project>

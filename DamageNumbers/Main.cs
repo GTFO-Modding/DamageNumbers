@@ -3,10 +3,9 @@ using BepInEx.IL2CPP;
 using HarmonyLib;
 using UnhollowerRuntimeLib;
 using UnityEngine;
-using System.Reflection;
 using GTFO.API;
 using Player;
-using FloatingNumberAPI;
+using FloatingTextAPI;
 using System;
 
 namespace DamageNumbers
@@ -17,19 +16,14 @@ namespace DamageNumbers
         public const string
             NAME = "DamageNumbers",
             AUTHOR = "dak",
-            VERSION = "2.1.0",
+            VERSION = "2.3.0",
             GUID = "com." + AUTHOR + "." + NAME;
-        //public static Main instance;
-        //internal GameObject DamageDisplay;
 
         public override void Load()
         {
-            //instance = this;
             ClassInjector.RegisterTypeInIl2Cpp<FloatingTextBase>();
             var harmony = new Harmony(GUID);
             harmony.PatchAll();
-            //InitAssetBundle("damagenumber");
-            //DamageDisplay = AssetAPI.GetLoadedAsset("ASSETS/PREFABS/DAMAGENUMBERS/DAMAGENUMBER.PREFAB")?.TryCast<GameObject>();
 
             NetworkAPI.RegisterEvent<NetworkDamageNumberInfo>(NetworkDamageNumberInfo.NetworkIdentity, RecieveDamageNumberInfo);
 
@@ -40,13 +34,6 @@ namespace DamageNumbers
 #endif
         }
 
-#if DEBUG
-        private void AssetAPI_OnStartupAssetsLoaded()
-        {
-            GameObject go = new GameObject();
-            go.AddComponent<Testing>();
-        }
-#endif
         private void RecieveDamageNumberInfo(ulong sender, NetworkDamageNumberInfo netInfo)
         {
             if (SNetwork.SNet.TryGetPlayer(sender, out SNetwork.SNet_Player nPlayer))
@@ -56,17 +43,13 @@ namespace DamageNumbers
             }
         }
 
-        //private static void InitAssetBundle(string assetBundleName)
-        //{
-        //    var assembly = Assembly.GetExecutingAssembly();
-        //    byte[] result;
-        //    using (var stream = assembly.GetManifestResourceStream($"DamageNumbers.{assetBundleName}"))
-        //    {
-        //        result = new byte[stream.Length - stream.Position];
-        //        stream.Read(result);
-        //    }
-        //    GTFO.API.AssetAPI.LoadAndRegisterAssetBundle(result);
-        //}
+#if DEBUG
+        private void AssetAPI_OnStartupAssetsLoaded()
+        {
+            GameObject go = new GameObject();
+            go.AddComponent<Testing>();
+        }
+#endif
     }
 
 #if DEBUG

@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace FloatingNumberAPI
+namespace FloatingTextAPI
 {
     public static class DamageNumberFactory
     {

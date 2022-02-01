@@ -1,4 +1,4 @@
-﻿using FloatingNumberAPI;
+﻿using FloatingTextAPI;
 using TMPro;
 using UnityEngine;
 using SNetwork;

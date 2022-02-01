@@ -5,17 +5,17 @@ using System.Reflection;
 using UnhollowerRuntimeLib;
 using UnityEngine;
 
-namespace FloatingNumberAPI
+namespace FloatingTextAPI
 {
     [BepInPlugin(GUID, MODNAME, VERSION)]
     [BepInDependency("dev.gtfomodding.gtfo-api", BepInDependency.DependencyFlags.HardDependency)]
     public class Main : BasePlugin
     {
         public const string
-            MODNAME = "FloatingNumberAPI",
+            MODNAME = "FloatingTextAPI",
             AUTHOR = "dak",
             GUID = "com." + AUTHOR + "." + MODNAME,
-            VERSION = "1.0.0";
+            VERSION = "1.0.2";
         internal static GameObject DamageText;
 
         public override void Load()
@@ -29,7 +29,7 @@ namespace FloatingNumberAPI
         {
             var assembly = Assembly.GetExecutingAssembly();
             byte[] result;
-            using (var stream = assembly.GetManifestResourceStream($"FloatingNumberAPI.{assetBundleName}"))
+            using (var stream = assembly.GetManifestResourceStream($"FloatingTextAPI.{assetBundleName}"))
             {
                 result = new byte[stream.Length - stream.Position];
                 stream.Read(result);

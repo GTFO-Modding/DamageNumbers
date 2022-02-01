@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using Agents;
-using FloatingNumberAPI;
+using FloatingTextAPI;
 using Enemies;
 using Player;
 

@@ -6,7 +6,7 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 
-namespace FloatingNumberAPI
+namespace FloatingTextAPI
 {
     public class FloatingTextBase : MonoBehaviour
     {
